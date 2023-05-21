@@ -16,17 +16,24 @@ use App\Http\Controllers\sub_markController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('index',[Students_marksController::class, 'index']);
-Route::resource('/contact', Students_marksController::class);
+//Route::get('/',[Students_marksController::class, 'index']);
+
+Route::resource('/', Students_marksController::class);
+
 //Route::get('edit/{roll_num}',[Students_marksController::class, 'edit']);
 //Route::put('update-edit/{roll_num}',[Students_marksController::class, 'update']);
+//Route::get('create', [Students_marksController::class, 'create']);
+Route::post('create', [Students_marksController::class, 'store']);
 Route::get('update-edit/{roll_num}', [Students_marksController::class, 'edit'])->name('update-edit');
 Route::post('update-edit/{roll_num}',[Students_marksController::class, 'update'])->name('update-edit');
 Route::get('contact-view/{roll_num}',[Students_marksController::class, 'show'])->name('contact-view');
+Route::delete('/{roll_num}', [Students_marksController::class, 'destroy'])->name('students.destroy');
+Route::get('/search',[Students_marksController::class, 'search']);
+
 
 
 

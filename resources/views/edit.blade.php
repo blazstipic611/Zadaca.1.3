@@ -24,11 +24,7 @@
     @endif
       <form method="POST" action="{{ route('update-edit', ['roll_num' => $students->roll_num]) }}">
       
-          <div class="form-group">
-              @csrf
-              <label for="country_name">Roll_num</label>
-              <input type="number" class="form-control" value="{{ $students->roll_num }}"  name="roll_num"/>
-          </div>
+         
           <div class="form-group">
               @csrf
               <label for="country_name">First_name:</label>
@@ -41,8 +37,17 @@
           </div>
 
           <div class="form-group">
-            <label for="cases">Department_id:</label>
-            <input type="number" class="form-control" value="{{ $students->department_id }}" name="department_id"/>
+            <label class="radio-inline">
+                <input type="radio" id="smt-fld-1-2" name="department_id" value="{{ $students->department_id }}">Computer
+            </label>
+            <br>
+            <label class="radio-inline">
+                <input type="radio" id="smt-fld-1-3" name="department_id" value="{{ $students->department_id }}">Information Technology
+            </label>
+            <br>
+            <br>
+            
+            
         </div>
 
 
